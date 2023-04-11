@@ -5,7 +5,7 @@ export default function FavoriView(props){
     return (
     <View style={styles.container}>
     <Text>favori</Text>
-    {/* <Favori id= {paramIdFilm}></Favori> */}
+    <Favori></Favori>
     </View>
     )
 

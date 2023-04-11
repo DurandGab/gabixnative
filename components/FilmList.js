@@ -35,12 +35,17 @@ export default function FilmList(props) {
         
             <TouchableOpacity
             onPress={ ()=>props.navigation.navigate("Detail", {idFilm:item.id})}>
-            <View style={styles.item}>
-            <Image
-            source={ { uri: "https://image.tmdb.org/t/p/w500/"+ item.poster_path}}
-            style={styles.image}></Image>
-            <Text>{item.title}</Text>
+            <View style={{ width: 250, height: 350, flexDirection: 'row', margin: 24 }}>
+                <Image
+                style={{ width: 250, height: 350, position: 'absolute' }}
+                source={ { uri: "https://image.tmdb.org/t/p/w500/"+ item.poster_path}}
+                />
+                <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)', alignSelf: 'flex-end' }}>
+                    <Text style={{ color: 'white', fontSize: 20, margin: 6 }}>{item.title}</Text>
+                    <Text style={{ color: 'white', margin: 6 }}>{'Catégorie'}</Text>
+                </View>
             </View>
+
             </TouchableOpacity>
         )
         }

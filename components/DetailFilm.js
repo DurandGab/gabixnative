@@ -25,11 +25,11 @@ export default function DetailFilm(props) {
   }, []);
 
   return (
-    <View style={styles.item}>
-      <Image
-        source={ { uri: "https://image.tmdb.org/t/p/w500/"+ film.poster_path}}
-        style={styles.image}></Image>
-      <Text>{film.title}</Text>
+
+    <View style={styles.card}>
+    <Image source={ { uri: "https://image.tmdb.org/t/p/w500/"+ film.poster_path}} style={styles.image} />
+    <Text style={styles.title}>{film.title}</Text>
+    {/* <Text style={styles.description}>{description}</Text> */}
     </View>
   );
 }
@@ -40,6 +40,30 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    
+        card: {
+          backgroundColor: '#fff',
+          borderRadius: 4,
+          borderWidth: 1,
+          borderColor: '#ccc',
+          margin: 10,
+          padding: 10,
+        },
+        image: {
+          height: 400,
+          width: 350,
+          resizeMode: 'cover',
+          marginBottom: 10,
+        },
+        title: {
+          fontSize: 18,
+          fontWeight: 'bold',
+          marginBottom: 5,
+        },
+        // description: {
+        //   fontSize: 16,
+        // },
+      
 
     item: {
         flex: 1,
@@ -49,13 +73,5 @@ const styles = StyleSheet.create({
         height: 140,
         flexDirection: 'row'
     },
-    image: {
-        width: 120,
-        height: 120,
-        margin: 5,
-        backgroundColor: 'gray'
-    },
-    title: {
-        fontSize: 20
-    },
+    
   });

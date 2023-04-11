@@ -7,8 +7,8 @@ import Ajout from '../components/Ajout';
 export default function AjoutView() {
    return(
     <View style={styles.container}>
-    <Text>ajout</Text>
-    {/* <Ajout></Ajout> */}
+    <Text>Ajoutez quelque chose a regarder </Text>
+    <Ajout></Ajout>
     </View>
    )
    }

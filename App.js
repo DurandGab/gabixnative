@@ -11,7 +11,7 @@ import ProfilView from './screens/ProfilView';
 const Stack = createNativeStackNavigator();
 export default function App() {
   
-  function FilmsScreen() {
+  function AccueilScreen() {
  const Stack = createNativeStackNavigator();
  return ( 
  <Stack.Navigator>
@@ -22,14 +22,7 @@ export default function App() {
  </Stack.Navigator>
  )}
 
- function AccueilScreen() {
-  const StackAccueil = createNativeStackNavigator();
-  return ( 
-    <StackAccueil.Navigator>
-    <StackAccueil.Screen name="Accueil" component={AccueilView} />
-    </StackAccueil.Navigator>
-  )
- }
+
  function AjoutScreen() {
   const StackAjout = createNativeStackNavigator();
   return ( 
