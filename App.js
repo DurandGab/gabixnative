@@ -118,6 +118,7 @@ export default function App() {
     }}
     />
     <Tab.Screen
+    //
     name="Profil"
     component={ProfilScreen}
     options={{
