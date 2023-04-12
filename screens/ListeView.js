@@ -6,7 +6,7 @@ export default function ListeView(props){
 
 return (
     <View style={styles.container}>
-    <Text>Liste</Text>
+    <Text style={styles.sous_titre}>Liste</Text>
     <FilmList pcritere={critere} {...props}></FilmList>
     </View>
 )
@@ -20,5 +20,9 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
-  
+    sous_titre:{
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginBottom:5,
+      },
   });

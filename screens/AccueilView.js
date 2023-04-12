@@ -7,18 +7,20 @@ export default function AccueilView(props){
 
 return(
     <View style={styles.container}>
-    <Text>Gabix-Films</Text>
-    <Button
-    onPress={ () => props.navigation.navigate("Films",{critere : text})} title="Rechercher un film">
-    </Button>
+    <Text style={styles.titre}>Gabix-Films</Text>
+    <Text style={styles.sous_titre}>Qu'est ce qu'on regarde ce soir ?</Text>
+    
     <StatusBar style="auto" />
 
     <TextInput
  style={styles.input}
  onChangeText={onChangeText}
  value={text}
- placeholder="citere de recherche"
+ placeholder="Un titre ?"
  />
+ <Button 
+    onPress={ () => props.navigation.navigate("Films",{critere : text})} title="Rechercher" color='#5f9ea0'>
+    </Button>
 
     </View>
 ) 
@@ -31,8 +33,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  images :{
-    width:400,
-    height:320
-  }
+  titre:{
+    fontSize: 40,
+    fontWeight: 'bold',
+    marginBottom:5,
+  },
+  sous_titre:{
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom:50,
+  },
+  input:{
+    textAlign:'center',
+    borderWidth: 1,
+    borderColor: 'gray',
+    paddingVertical:10,
+    paddingHorizontal:30,
+    marginBottom:10
+  },
 });

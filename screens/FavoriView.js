@@ -4,7 +4,7 @@ import Favori from "../components/Favori"
 export default function FavoriView(props){
     return (
     <View style={styles.container}>
-    <Text>favori</Text>
+    <Text style={styles.sous_titre}>Mes favoris</Text>
     <Favori></Favori>
     </View>
     )
@@ -17,5 +17,10 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    sous_titre:{
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginBottom:5,
+      },
   
   });

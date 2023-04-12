@@ -75,8 +75,8 @@ export default function Ajout() {
                 onValueChange={(itemValue) => setCategorie(itemValue)}
                 style={{ borderWidth: 1, borderColor: 'gray',width:275, padding: 10, marginBottom:10 }}
             >
-                <Picker.Item label="Male" value="male" />
-                <Picker.Item label="Female" value="female" />
+                <Picker.Item label="1" value="1" />
+                <Picker.Item label="2" value="2" />
             </Picker>
 
             <Text>Genre</Text>
@@ -85,8 +85,8 @@ export default function Ajout() {
                 onValueChange={(itemValue) => setGenre(itemValue)}
                 style={{ borderWidth: 1, borderColor: 'gray',width:275, padding: 10, marginBottom:10 }}
             >
-                <Picker.Item label="Male" value="male" />
-                <Picker.Item label="Female" value="female" />
+                <Picker.Item label="1" value="1" />
+                <Picker.Item label="2" value="2" />
             </Picker>
 
             <Text>Pays d'origine</Text>
@@ -95,11 +95,11 @@ export default function Ajout() {
                 onValueChange={(itemValue) => setPays(itemValue)}
                 style={{ borderWidth: 1, borderColor: 'gray',width:275, padding: 10, marginBottom:10 }}
             >
-                <Picker.Item label="Male" value="male" />
-                <Picker.Item label="Female" value="female" />
+                <Picker.Item label="1" value="1" />
+                <Picker.Item label="2" value="2" />
             </Picker>
 
-            <Button title="Ajouter" onPress={handleSubmit} />
+            <Button title="Ajouter" onPress={handleSubmit} color='#5f9ea0'/>
           </View>
         );
       };

@@ -1,17 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, ScrollView, Image, FlatList} from 'react-native';
 import {useEffect, useState} from "react"
 export default function DetailFilm(props) {
-  const apiKey = "af1e1c8f8ad6efb5b326eabaffa38b8a";
+  
   const url =
-    "https://api.themoviedb.org/3/movie/"+props.id+"?api_key=" +apiKey+ 
-    "&language=fr-FR&page=1&query=";
+    "https://gabix-films.herokuapp.com/public/api/films/"+props.titre;
+    console.log(url)
 
     const [film, setFilms] = useState({});
   useEffect(() => {
     const fetchOptions = { method: "GET" };
     //const critere = "jardin";
-    fetch(url + fetchOptions)
+    fetch(url,fetchOptions)
       .then((response) => {
         return response.json();
       })
@@ -26,11 +26,40 @@ export default function DetailFilm(props) {
 
   return (
 
-    <View style={styles.card}>
-    <Image source={ { uri: "https://image.tmdb.org/t/p/w500/"+ film.poster_path}} style={styles.image} />
-    <Text style={styles.title}>{film.title}</Text>
-    {/* <Text style={styles.description}>{description}</Text> */}
-    </View>
+    <ScrollView style={styles.card}>
+        <Image source={ { uri: film.logo}} style={styles.image} />
+        <Text style={styles.descr}>{film.duree}</Text>
+        <Text style={styles.title}>{film.titre}</Text>
+        <Text style={styles.descr}>{film.nom_pays}</Text>
+        <Text style={styles.categorie}>{film.nom_categorie} - {film.nom_genre}</Text>
+        <Text style={styles.descr}>+ {film.age_min}ans</Text>
+        <Text style={styles.description}>Réalisateur : {film.realisateur}</Text>
+        <Text style={styles.description}>Sortie le : {film.date_sortie}</Text>
+        <Text style={styles.description}>Synopsis : {film.synopsis}</Text>
+
+        {/* <FlatList
+        data={listeActeurs}
+        keyExtractor={ (item) => item.titre.toString() }
+        renderItem={({item}) =>{
+        return(
+        
+            <TouchableOpacity
+            onPress={ ()=>props.navigation.navigate("Detail", {titre:item.titre})}>
+            <View style={{ width: 250, height: 350, flexDirection: 'row', margin: 24 }}>
+                <Image
+                style={{ width: 250, height: 350, position: 'absolute' }}
+                source={ { uri:item.img_acteur}}
+                />
+                <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)', alignSelf: 'flex-end' }}>
+                    <Text style={{ color: 'white', fontSize: 20, margin: 6 }}>{item.nom}</Text>
+                </View>
+            </View>
+            </TouchableOpacity>
+        )
+        }
+        }
+        />  */}
+    </ScrollView>
   );
 }
 const styles = StyleSheet.create({
@@ -46,23 +75,30 @@ const styles = StyleSheet.create({
           borderRadius: 4,
           borderWidth: 1,
           borderColor: '#ccc',
-          margin: 10,
-          padding: 10,
+          margin: 8,
+          padding: 8,
         },
         image: {
           height: 400,
           width: 350,
           resizeMode: 'cover',
-          marginBottom: 10,
+          marginBottom: 2,
         },
         title: {
           fontSize: 18,
           fontWeight: 'bold',
-          marginBottom: 5,
         },
-        // description: {
-        //   fontSize: 16,
-        // },
+        description: {
+          fontSize: 16,
+          marginBottom: 2,
+        },
+        categorie: {
+            fontSize: 14,
+          },
+          descr: {
+            fontSize: 14,
+            textAlign:"right"
+          },
       
 
     item: {

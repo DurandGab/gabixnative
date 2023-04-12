@@ -7,7 +7,7 @@ import Ajout from '../components/Ajout';
 export default function AjoutView() {
    return(
     <View style={styles.container}>
-    <Text>Ajoutez quelque chose a regarder </Text>
+    <Text style={styles.sous_titre}>Ajoutez quelque chose a regarder </Text>
     <Ajout></Ajout>
     </View>
    )
@@ -20,5 +20,10 @@ export default function AjoutView() {
       alignItems: 'center',
       justifyContent: 'center',
     },
+    sous_titre:{
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginBottom:5,
+      },
   
   });

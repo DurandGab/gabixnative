@@ -51,10 +51,10 @@ export default function App() {
  const Tab = createBottomTabNavigator();
     return (
     <NavigationContainer>
-    <Tab.Navigator
+    <Tab.Navigator 
     screenOptions={({ route }) => ({
-    tabBarActiveTintColor: 'green',
-    tabBarInactiveTintColor: 'gray',
+    tabBarActiveTintColor: 'blue',
+    tabBarInactiveTintColor: 'black',
     headerShown: false
     })}
     >
@@ -142,5 +142,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
 
 });

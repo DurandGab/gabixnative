@@ -3,11 +3,9 @@ import { StyleSheet, Text, View, Image, FlatList, TouchableOpacity } from 'react
 import { useEffect } from "react";
 
 export default function FilmList(props) {
-  const apiKey = "af1e1c8f8ad6efb5b326eabaffa38b8a";
+ 
   const url =
-    "https://api.themoviedb.org/3/search/movie?api_key=" +
-    apiKey +
-    "&language=fr-FR&page=1&query=";
+    "https://gabix-films.herokuapp.com/public/api/films?search=";
 
   const [listeFilms, setFilms] = useState([]);
   useEffect(() => {
@@ -19,7 +17,7 @@ export default function FilmList(props) {
       })
       .then((dataJSON) => {
         console.log(dataJSON);
-        setFilms(dataJSON.results);
+        setFilms(dataJSON);
       })
       .catch((error) => {
         console.log(error);
@@ -29,20 +27,20 @@ export default function FilmList(props) {
   return (
     <FlatList
         data={listeFilms}
-        keyExtractor={ (item) => item.id.toString() }
+        keyExtractor={ (item) => item.titre.toString() }
         renderItem={({item}) =>{
         return(
         
             <TouchableOpacity
-            onPress={ ()=>props.navigation.navigate("Detail", {idFilm:item.id})}>
+            onPress={ ()=>props.navigation.navigate("Detail", {titre:item.titre})}>
             <View style={{ width: 250, height: 350, flexDirection: 'row', margin: 24 }}>
                 <Image
                 style={{ width: 250, height: 350, position: 'absolute' }}
-                source={ { uri: "https://image.tmdb.org/t/p/w500/"+ item.poster_path}}
+                source={ { uri:item.logo}}
                 />
                 <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)', alignSelf: 'flex-end' }}>
-                    <Text style={{ color: 'white', fontSize: 20, margin: 6 }}>{item.title}</Text>
-                    <Text style={{ color: 'white', margin: 6 }}>{'Catégorie'}</Text>
+                    <Text style={{ color: 'white', fontSize: 20, margin: 6 }}>{item.titre}</Text>
+                    <Text style={{ color: 'white', margin: 6 }}>{item.nom_categorie} - {item.nom_genre}</Text>
                 </View>
             </View>
 
