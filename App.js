@@ -8,6 +8,7 @@ import DetailView from './screens/DetailView';
 import FavoriView from './screens/FavoriView';
 import AjoutView from './screens/AjoutView';
 import ProfilView from './screens/ProfilView';
+import AjoutCritiqueView from './screens/AjoutCritiqueView';
 const Stack = createNativeStackNavigator();
 export default function App() {
   
@@ -19,6 +20,7 @@ export default function App() {
  <Stack.Screen name="Accueil" component={AccueilView} />
  <Stack.Screen name="Films" component={ListeView} />
  <Stack.Screen name="Detail" component={DetailView} />
+ <Stack.Screen name="Ajoutcritique" component={AjoutCritiqueView} />
  </Stack.Navigator>
  )}
 

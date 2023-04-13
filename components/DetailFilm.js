@@ -1,6 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, ScrollView, Image, FlatList} from 'react-native';
+import { StyleSheet, Text, ScrollView, Image, FlatList, Button} from 'react-native';
 import {useEffect, useState} from "react"
+import ActeursFilm from "./ActeursFilm"
+import CritiqueFilm from "./CritiqueFilm"
 export default function DetailFilm(props) {
   
   const url =
@@ -37,28 +39,10 @@ export default function DetailFilm(props) {
         <Text style={styles.description}>Sortie le : {film.date_sortie}</Text>
         <Text style={styles.description}>Synopsis : {film.synopsis}</Text>
 
-        {/* <FlatList
-        data={listeActeurs}
-        keyExtractor={ (item) => item.titre.toString() }
-        renderItem={({item}) =>{
-        return(
-        
-            <TouchableOpacity
-            onPress={ ()=>props.navigation.navigate("Detail", {titre:item.titre})}>
-            <View style={{ width: 250, height: 350, flexDirection: 'row', margin: 24 }}>
-                <Image
-                style={{ width: 250, height: 350, position: 'absolute' }}
-                source={ { uri:item.img_acteur}}
-                />
-                <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)', alignSelf: 'flex-end' }}>
-                    <Text style={{ color: 'white', fontSize: 20, margin: 6 }}>{item.nom}</Text>
-                </View>
-            </View>
-            </TouchableOpacity>
-        )
-        }
-        }
-        />  */}
+      <Text style={styles.description}>Acteurs :</Text>
+      <ActeursFilm ptitre={props.titre}></ActeursFilm>
+      <Text style={styles.description}>Critiques :</Text>
+      <CritiqueFilm ptitre={props.titre}></CritiqueFilm>
     </ScrollView>
   );
 }

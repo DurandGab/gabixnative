@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View, Button} from 'react-native';
 import DetailFilm from "../components/DetailFilm"
 
 export default function DetailView(props){
@@ -8,6 +8,9 @@ export default function DetailView(props){
     <View style={styles.container}>
     <Text style={styles.sous_titre}>Détail</Text>
     <DetailFilm titre= {paramIdFilm}></DetailFilm>
+    <Button 
+        onPress={ () => props.navigation.navigate("Ajout d'une critique",{critere : paramIdFilm})} title="Ajouter votre critique" color='#5f9ea0'>
+      </Button>
     </View>
     )
 
@@ -24,5 +27,4 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom:5,
       },
-  
   });
