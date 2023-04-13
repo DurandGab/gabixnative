@@ -9,18 +9,25 @@ import FavoriView from './screens/FavoriView';
 import AjoutView from './screens/AjoutView';
 import ProfilView from './screens/ProfilView';
 import AjoutCritiqueView from './screens/AjoutCritiqueView';
+import ConnexionView from './screens/ConnexionView';
+import InscriptionView from './screens/InscriptionView';
+import DetailActeurView from './screens/DetailActeurView';
 const Stack = createNativeStackNavigator();
 export default function App() {
+  
   
   function AccueilScreen() {
  const Stack = createNativeStackNavigator();
  return ( 
  <Stack.Navigator>
  {/* la navigation doit se faire uniquement entre des View*/}
+ <Stack.Screen name="Inscription" component={InscriptionView} />
+ <Stack.Screen name="Connexion" component={ConnexionView} />
  <Stack.Screen name="Accueil" component={AccueilView} />
  <Stack.Screen name="Films" component={ListeView} />
  <Stack.Screen name="Detail" component={DetailView} />
- <Stack.Screen name="Ajoutcritique" component={AjoutCritiqueView} />
+ <Stack.Screen name="Ajout d'une critique" component={AjoutCritiqueView} />
+ <Stack.Screen name="DetailActeur" component={DetailActeurView} />
  </Stack.Navigator>
  )}
 

@@ -1,17 +1,13 @@
 import { StyleSheet, Text, View, Button} from 'react-native';
-import DetailFilm from "../components/DetailFilm"
+import DetailActeur from "../components/DetailActeur"
 
-export default function DetailView(props){
-  const paramIdFilm = props.route.params.titre;
-
-  console.log('toto' + paramIdFilm)
+export default function DetailActeurView(props){
+  const paramIdActeur = props.route.params.id_acteur;
+  console.log('toto' + paramIdActeur)
     return (
     <View style={styles.container}>
     <Text style={styles.sous_titre}>Détail</Text>
-    <DetailFilm titre= {paramIdFilm}></DetailFilm>
-    <Button 
-        onPress={ () => props.navigation.navigate("Ajout d'une critique",{titre : paramIdFilm})} title="Ajouter votre critique" color='#5f9ea0'>
-      </Button>
+    <DetailActeur {...props}></DetailActeur>
     </View>
     )
 

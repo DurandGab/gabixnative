@@ -2,17 +2,20 @@ import React from "react";
 import { StyleSheet, Text, TextInput, View,Button, Image, FlatList } from 'react-native';
 import {useEffect, useState} from "react"
 import Slider from '@react-native-community/slider';
+import { useNavigation } from "@react-navigation/native";
 export default function AjoutCritique(props) {
+  const navigation = useNavigation()
         const [note, setNote] = useState(0);
         const [commentaire, setCommentaire] = useState('');
         const [ajoutCritique, setAjoutCritique] = useState({})
       
         const handleSubmit = (event) => {
+          console.log(props)
             event.preventDefault();
             const data={id_utilisateur:6, commentaire:commentaire, note:note}
             console.log(data)
           // Handle form submission logic here
-          fetch("https://gabix-films.herokuapp.com/public/api/films/" + props.ptitre + "/critique", {
+          fetch("https://gabix-films.herokuapp.com/public/api/films/" + props.titre + "/critique", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +26,7 @@ export default function AjoutCritique(props) {
       .then((data) => {
         console.log(data);
         setAjoutCritique(data)
-
+        navigation.goBack();
         // window.location.href="/login"
       });
 

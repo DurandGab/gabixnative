@@ -12,8 +12,8 @@ export default function CritiqueFilm(props){
       return response.json();
     })
     .then((dataJSON) => {
-      setCritique(dataJSON);
       console.log(dataJSON)
+      setCritique(dataJSON);
     });
   }, [])
   return(

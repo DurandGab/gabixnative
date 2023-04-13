@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, FlatList, TouchableOpacity } from 'react-native';
 
 export default function ActeursFilm(props){
+  
     const url ="https://gabix-films.herokuapp.com/public/api/films/" + props.ptitre + "/acteurs";
   const [acteur, setActeur] = useState([]);
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function ActeursFilm(props){
         return(
         
             <TouchableOpacity
-            onPress={ ()=>props.navigation.navigate("Detail", {titre:item.titre})}>
+            onPress={ ()=>props.navigation.navigate("DetailActeur", {id_acteur : item.id_acteur})}>
             <View style={{ width: 250, height: 350, flexDirection: 'row',marginHorizontal:50, marginBottom: 24 }}>
                 <Image
                 style={{ width: 250, height: 350, position: 'absolute' }}

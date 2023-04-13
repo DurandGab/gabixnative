@@ -5,10 +5,11 @@ import AjoutCritique from '../components/AjoutCritique';
 
 
 export default function AjoutCritiqueView(props) {
+  const paramIdFilm = props.route.params.titre
    return(
     <View style={styles.container}>
     <Text style={styles.sous_titre}>Ajoutez une critique </Text>
-    <AjoutCritique></AjoutCritique>
+    <AjoutCritique titre={paramIdFilm} ></AjoutCritique>
     </View>
    )
    }

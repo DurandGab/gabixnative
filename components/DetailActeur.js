@@ -3,13 +3,13 @@ import { StyleSheet, Text, ScrollView, Image, FlatList, Button} from 'react-nati
 import {useEffect, useState} from "react"
 import ActeursFilm from "./ActeursFilm"
 import CritiqueFilm from "./CritiqueFilm"
-export default function DetailFilm(props) {
+export default function DetailActeur(props) {
   
   const url =
-    "https://gabix-films.herokuapp.com/public/api/films/"+ props.titre;
+    "https://gabix-films.herokuapp.com/public/api/acteur/" +props.id_acteur;
     console.log(url)
 
-    const [film, setFilms] = useState({});
+    const [acteur, setActeur] = useState({});
   useEffect(() => {
     const fetchOptions = { method: "GET" };
     //const critere = "jardin";
@@ -19,7 +19,7 @@ export default function DetailFilm(props) {
       })
       .then((dataJSON) => {
         console.log(dataJSON);
-        setFilms(dataJSON);
+        setActeur(dataJSON);
       })
       .catch((error) => {
         console.log(error);
@@ -29,20 +29,12 @@ export default function DetailFilm(props) {
   return (
 
     <ScrollView style={styles.card}>
-        <Image source={ { uri: film.logo}} style={styles.image} />
-        <Text style={styles.descr}>{film.duree}</Text>
-        <Text style={styles.title}>{film.titre}</Text>
-        <Text style={styles.descr}>{film.nom_pays}</Text>
-        <Text style={styles.categorie}>{film.nom_categorie} - {film.nom_genre}</Text>
-        <Text style={styles.descr}>+ {film.age_min}ans</Text>
-        <Text style={styles.description}>Réalisateur : {film.realisateur}</Text>
-        <Text style={styles.description}>Sortie le : {film.date_sortie}</Text>
-        <Text style={styles.description}>Synopsis : {film.synopsis}</Text>
+        <Image source={ { uri: acteur.img_acteur}} style={styles.image} />
+        <Text style={styles.descr}>{acteur.nom}</Text>
+        <Text style={styles.title}>{acteur.date_naiss}</Text>
+        <Text style={styles.descr}>Bio :{acteur.biographie}</Text>
+        <Text style={styles.categorie}>{acteur.nom_pays}</Text>
 
-      <Text style={styles.description}>Acteurs :</Text>
-      <ActeursFilm ptitre={props.titre}></ActeursFilm>
-      <Text style={styles.description}>Critiques :</Text>
-      <CritiqueFilm ptitre={props.titre}></CritiqueFilm>
     </ScrollView>
   );
 }

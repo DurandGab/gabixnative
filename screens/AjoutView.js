@@ -4,11 +4,11 @@ import { StyleSheet, Text, View, Button, Image} from 'react-native';
 import Ajout from '../components/Ajout';
 
 
-export default function AjoutView() {
+export default function AjoutView(props) {
    return(
     <View style={styles.container}>
     <Text style={styles.sous_titre}>Ajoutez quelque chose a regarder </Text>
-    <Ajout></Ajout>
+    <Ajout userid={1} {...props}></Ajout>
     </View>
    )
    }
